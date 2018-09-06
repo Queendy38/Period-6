@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <style>
+            button{
+                width:50vw;
+                height:50vh;
+               
+               margin-left:25%;
+               font-size:30px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <script>
+            //ask the user foe a number
+            // ask another player for a number between 1 and 5
+            //scold user if the number is not between 1 and 5
+            //compare both numbers
+            //IF the numbers are the same, alert (Tie score);
+            //Else if the number are not the same(tell wach plyer what they guessed)
+            function gameOver(){
+    window.alert("LOOOOOOOOOOOOOOOOOOOOOSER");
+}
+            function game(){
+var playerOne = prompt("Enter Num between 1 and 5");
+var playerTwo = prompt("Enter Num between 1 and 5");
+if ((playerOne < 1 || playerOne >5) || (playerTwo < 1 || playerOne > 5)){
+    window.alert("You are a dirty cheater");
+    gameOver();
+    return; //takes u out of the function
+    };
+if (playerOne === playerTwo) {
+    window.alert("Tie Score");
+
+}
+else {
+    window.alert("p1 chose" + playerOne);
+    window.alert("p2 chose" + playerTwo);
+}
+}
+
+ 
+
+            </script>
+            <button onclick="game()">StartGame</button>
+    </body>
+    </html>
