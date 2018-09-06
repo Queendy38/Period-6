@@ -13,7 +13,7 @@
                     }
                     button:hover{
                        background-color:rgb(165, 192, 228);
-                       transform: translate(30%);
+                       
                     }
                    
                 </style>
@@ -30,8 +30,6 @@
                 mayo:true,
                 ketchup:true,
                 mustard:true,
-                relish:false,
-                bbq:false,
                 price:10,
                 ounces:3
                 }
@@ -39,16 +37,32 @@
 
             function randoBurger(){
             var ranBun = Math.floor(Math.random() * hamburger.bun.length);
-            arr.push(ranBun);
             var ranMeat = Math.floor(Math.random() * hamburger.meat.length);
-            arr.push(ranMeat);
-            var ranVeg = Math.floor(Math.random() * hamburger.veg.length);
-            arr.push(ranVeg);
+           var ranVeg = Math.floor(Math.random() * hamburger.veg.length);
             var ranCheese = Math.floor(Math.random() * hamburger.cheese.length);
-            arr.push(ranCheese);
-            window.alert(arr);
+            var askMayo = prompt("Do you want mayo? Y or N");
+            askMayo.toLowerCase();
+            if ((askMayo === "n") && (hamburger.mayo === true)){
+                window.alert("Too Bad, Has mayo");
+                return;
+            }
+            var askMustard = prompt("Do you want mustard? Y or N");
+            askMustard.toLowerCase();
+            if ((askMustard === "n") && (hamburger.mustard === true)){
+                window.alert("Too Bad, Has mustard");
+                return;
+            }
+            var askKet = prompt("Do you want ketchup? Y or N");
+            askKet.toLowerCase();
+            if ((askKet === "n") && (hamburger.ketchup === true)){
+                window.alert("Too Bad, Has ketchup");
+                return;
+            }
+          document.getElementById('hamburgerFinal').innerHTML = "You are going to get a " + hamburger.bun[ranBun] + " " + hamburger.meat [ranMeat] + " " + hamburger.veg [ranVeg] + " " + hamburger.cheese[ranCheese] + " burger.";
+         
 
             }
             </script>
-            <button onclick="randoBurger()">Click Me</button>
+            <button onclick="randoBurger()">Click Me</button> 
+            <p id="hamburgerFinal"></p>
     </body>
