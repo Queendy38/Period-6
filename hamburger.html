@@ -1,12 +1,32 @@
 <html>
-    <head></head>
+    <head>
+            <style>
+                    button{
+                        width:40vw;
+                        height:40vh;
+                        color:black;
+                        margin-left:30%;
+                        font-size:30px;
+                        border-color:black;
+                        border-width:10px;
+                        border-radius:10px;
+                    }
+                    button:hover{
+                       background-color:rgb(165, 192, 228);
+                       transform: translate(30%);
+                    }
+                   
+                </style>
+    </head>
     <body>
         <script>
-            var hamburgrt = {
+            //create object
+            var hamburger = {
                 name: "Kams's Famous Burger",
                 bun: ["plain", "seasame", "whole wheat"],
                 meat: ["beef", "pork", "chicken"],
                 veg: ["pickles", "lettuce", "cucumber"],
+                cheese:["American", "mozzarella", "blue cheese"],
                 mayo:true,
                 ketchup:true,
                 mustard:true,
@@ -14,7 +34,21 @@
                 bbq:false,
                 price:10,
                 ounces:3
+                }
+                var arr = [];
+
+            function randoBurger(){
+            var ranBun = Math.floor(Math.random() * hamburger.bun.length);
+            arr.push(ranBun);
+            var ranMeat = Math.floor(Math.random() * hamburger.meat.length);
+            arr.push(ranMeat);
+            var ranVeg = Math.floor(Math.random() * hamburger.veg.length);
+            arr.push(ranVeg);
+            var ranCheese = Math.floor(Math.random() * hamburger.cheese.length);
+            arr.push(ranCheese);
+            window.alert(arr);
 
             }
             </script>
+            <button onclick="randoBurger()">Click Me</button>
     </body>
