@@ -7,8 +7,8 @@
                     button{
                         width:40vw;
                         height:40vh;
-                        color:black;
-                        font-size:30px;
+                        color:rgb(18, 25, 119);
+                        font-size:100px;
                         border-color:black;
                         border-width:10px;
                         border-radius:10px;
@@ -49,28 +49,33 @@
                         animation-iteration-count:infinite;
                         animation-direction: alternate;
                       }
-                   p{
+                   div{
                        animation-name:movPara;
                        animation-duration:4s;
                        animation-iteration-count:infinite;
                        font-size:10vh;
                        text-align:center;
+                       width:50vw;
+                       height:30vh;
+                       margin:auto;
+                       word-spacing:10px;
 
                    }
-
+                  
 
                 </style>
     </head>
     <body> 
+       
         
         <script>
             //create object
             var hamburger = {
                 name: "Kams's Famous Burger",
-                bun: ["plain", "seasame", "whole wheat"],
-                meat: ["beef", "pork", "chicken"],
-                veg: ["pickles", "lettuce", "cucumber"],
-                cheese:["American", "mozzarella", "blue cheese"],
+                bun: ["普通", "芝麻", "全麦"],
+                meat: ["牛肉", "猪肉", "鸡肉"],
+                veg: ["酸瓜", "生菜", "青瓜"],
+                cheese:["美式奶酪", "原味", "过期奶酪", "蓝奶酪"],
                 mayo:true,
                 ketchup:true,
                 mustard:true,
@@ -84,30 +89,29 @@
             var ranMeat = Math.floor(Math.random() * hamburger.meat.length);
            var ranVeg = Math.floor(Math.random() * hamburger.veg.length);
             var ranCheese = Math.floor(Math.random() * hamburger.cheese.length);
-            var askMayo = prompt("Do you want mayo? Y or N");
+            var askMayo = prompt("要沙拉酱吗? Y or N");
             askMayo.toLowerCase();
             if ((askMayo === "n") && (hamburger.mayo === true)){
-                window.alert("Too Bad, Has mayo");
+                window.alert("不好意思，已经加了");
                 return;
             }
-            var askMustard = prompt("Do you want mustard? Y or N");
+            var askMustard = prompt("要芥末吗? Y or N");
             askMustard.toLowerCase();
             if ((askMustard === "n") && (hamburger.mustard === true)){
-                window.alert("Too Bad, Has mustard");
+                window.alert("不好意思，已经加了");
                 return;
             }
-            var askKet = prompt("Do you want ketchup? Y or N");
+            var askKet = prompt("要番茄酱吗? Y or N");
             askKet.toLowerCase();
             if ((askKet === "n") && (hamburger.ketchup === true)){
-                window.alert("Too Bad, Has ketchup");
+                window.alert("不好意思，已经加了");
                 return;
             }
             //display random ingredients
-          document.getElementById('hamburgerFinal').innerHTML = "You are going to get a " + hamburger.bun[ranBun] + " " + hamburger.meat [ranMeat] + " " + hamburger.veg [ranVeg] + " " + hamburger.cheese[ranCheese] + " burger.";
-         
+          document.getElementById('hamburgerFinal').innerHTML = "您的订单是" + hamburger.bun[ranBun] + hamburger.meat [ranMeat] + hamburger.veg [ranVeg] + hamburger.cheese[ranCheese] + "汉堡" + "。" + "总共是.........." + hamburger.price + "块。";
 
             }
             </script>
-            <button onclick="randoBurger()">Click Me</button> 
-            <p id="hamburgerFinal"></p>
+            <button onclick="randoBurger()">购买汉堡</button> 
+            <div id="hamburgerFinal"></div>
     </body>
