@@ -4,8 +4,9 @@
         <input type="text" id="user">
 <script>
 function sayHello(){
-       var x = document.getElementById('user').value;
-       document.getElementById('placeHere').innerHTML = x;
+       var x = document.getElementById('user').value; //gets the vlaue from the user id  and saves as x
+       document.getElementById('user').value = "";  //clear value
+       document.getElementById('placeHere').innerHTML = x; //display on screen
 }
 
 </script>

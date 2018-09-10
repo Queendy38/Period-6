@@ -3,6 +3,7 @@
 
 </head>
 <body>
+    <input type="number" id="quantity">
 <script>
 var hamburger = {
    meat:"beef",
@@ -15,16 +16,19 @@ var hamburger = {
    pepper:true,
    price:7,
    qty:1
-};
+}
 // ask user how many
 //tell the user how many they are buying
 // tell the user how much they owe
-var QuantB = prompt("How many burger?");
-window.alert("You are buying " + QuantB + " burger" );
-var totalP = QuantB * hamburger.price;
-window.alert("Your total is " + "$" + totalP);
 
+function buyMe(){
+                    var number = document.getElementById('quantity').value;
+                    var total = ((number * hamburger.price) * 1.04712).toFixed(2);
+                    document.getElementById('placeHere').innerHTML = "You owe " + total;
+                }
 
 </script>
 </body>
+<button onclick="buyMe()">Click Me</button>
+<h1 id="placeHere"></h1>
     </html>
