@@ -1,0 +1,29 @@
+
+<html>
+<head>
+  
+</head>
+<body>
+    <ul>
+        <li>Look at me</li>
+    </ul>
+    <script>
+    var arr = ["one", "two", "three"];
+    for (var i =0; i < arr.length; i++) { //statement goes under
+           var newItem = document.createElement("li");
+           var c = document.createTextNode(arr[i]);
+           newItem.appendChild(c);
+           var ulTag = document.getElementsByTagName("ul")[0]; 
+           ulTag.appendChild(newItem);
+          // document.body.appendChild(ulTag);
+
+
+    }
+
+
+
+    
+    
+    </script>
+</body>
+</html>

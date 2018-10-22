@@ -1,0 +1,31 @@
+
+<html>
+
+<body>
+    <h1 id="placeHere"></h1>
+  <script>
+      //this is the main function I warp my timeout 
+      
+function sayHello() {
+    var number = Math.floor(Math.random() * 5000);
+    //I will noe create a timeout with a 5 seconds delay
+    setTimeout( function() {
+      //The code goes here.I will write the word "Hello"
+      document.getElementById('placeHere').innerHTML = "McDonald's I'm lov'in it!";
+
+      document.body.style.backgroundColor = "red";
+      document.body.style.color = "yellow";
+      document.body.style.fontSize = "8vh";
+      document.body.style.textAlign = "center";
+    },number);
+
+}
+
+      
+  </script>
+
+<script> sayHello() </script>
+
+</body>
+
+</html>
