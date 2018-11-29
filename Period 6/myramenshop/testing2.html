@@ -1,0 +1,23 @@
+<html>
+<head>
+   
+</head>
+<body>
+    <h1>Enter Price</h1>
+    <input id="price">
+    <button onclick="addPrice()">Enter</button>
+    <script>
+    //ask the boss for the a,e of the ramen
+    //go to another page
+    //ask the boss for the price of the ramen
+    //gp tp another page
+    //on the third page, add all of these things to the object called myramenshop and display to screen
+    function addPrice(){
+    var x = document.getElementById('price').value; //get value from user
+   localStorage.setItem("newprice", x); //store in local storage
+    location.href="testing3.html";
+     }
+        </script>
+
+</body>
+</html>

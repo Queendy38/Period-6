@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Person's Name</h1>
+    <input type="text" id="personsname">
+    <button onclick="storageTest()">Click Here</button>
+    <script>
+      function storageTest(){
+        var x = document.getElementById('personsname').value;
+        localStorage.setItem("personsname", x);
+        location.href="localStorage2.html";
+      }
+    </script>
+  </body>
+</html>

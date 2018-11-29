@@ -1,0 +1,39 @@
+
+<html>
+<head>
+    <input id="name"> Name <br>
+    <input id="toppings"> Topping <br>
+    <input id="price"> Price
+</head>
+<body>
+    <hr>
+    <button onclick="addObject()">Add new object</button>
+    <h1 id="putName"></h1>
+        <h1 id="putPrice"></h1>
+            <h1 id="putToppings"></h1>
+        
+    
+    <Script>
+          var pizza = {
+        "name":"The Piz",
+        "topping": ["mayo", "cheese", "ketchup", "red pepper"],
+        "price": 0.99
+     }
+   
+     function addObject(){
+         var x = document.getElementById('name').value;
+         var y = document.getElementById('toppings').value;
+         var z = document.getElementById('price').value;
+
+         var salad = {};
+         salad["name"] = x,
+         salad["topping"] = y, 
+         salad["price"] = z,
+         window.alert(salad.name + " " + salad.topping + " " + salad.price);
+     }
+
+    
+
+        </script>
+</body>
+</html>

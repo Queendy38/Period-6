@@ -1,0 +1,26 @@
+<html>
+<head>
+   
+</head>
+<body>
+   <h1 id="placeHolder"></h1>
+    <script>
+       
+        var x = localStorage.getItem("newname");  //get value from local storage
+        var y = localStorage.getItem("newprice");  //get value from local storage
+        var myramenshop = {}; //create empty object
+        
+        myramenshop["name"] = x; //give value to name
+        myramenshop["price"] = y;//give value to price
+
+    document.getElementById('placeHolder').innerHTML = myramenshop.name + myramenshop.price ; //display on screen
+    //ask the boss for the a,e of the ramen
+    //go to another page
+    //ask the boss for the price of the ramen
+    //gp tp another page
+    //on the third page, add all of these things to the object called myramenshop and display to screen
+   
+        </script>
+
+</body>
+</html>

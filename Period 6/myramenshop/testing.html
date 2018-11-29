@@ -1,0 +1,29 @@
+
+<html>
+<head>
+   <style>
+  
+   
+   </style>
+
+</head>
+<body>
+    <h1>Enter Pizza Name</h1>
+    <input id="name">
+    <button onclick="addName()">Enter</button>
+    <script>
+    
+    //ask the boss for the a,e of the ramen
+    //go to another page
+    //ask the boss for the price of the ramen
+    //gp tp another page
+    //on the third page, add all of these things to the object called myramenshop and display to screen
+    function addName(){
+    var y = document.getElementById('name').value; //get value from user
+    localStorage.setItem("newname",y); //save value to localStorage
+    location.href="testing2.html";
+     }
+        </script>
+
+</body>
+</html>

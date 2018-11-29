@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Result</h1>
+    <hr>
+    <h1 id="results"></h1>
+    <a href ="localStorage.html">Start Over</a>
+    <script>
+    var p = localStorage.getItem("personsname");
+    var a = localStorage.getItem("adverd");
+    var pl = localStorage.getItem("place");
+    document.getElementById('results').innerHTML = p + " " + a + " walked to the " + pl;
+    </script>
+  </body>
+</html>

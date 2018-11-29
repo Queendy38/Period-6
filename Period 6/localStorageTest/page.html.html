@@ -1,0 +1,19 @@
+<html>
+  
+  <body>
+    <h1>Add Things</h1>
+    <input type="text" id="input">
+    <button onclick="testing()">Click ME</button>
+    <script>
+      var arr = [];
+      function testing(){
+        var x = document.getElementById('input').value;
+          arr.push(x);
+          localStorage.setItem("input", arr);
+      
+          location.href="page2.html";
+      }
+      
+    </script>
+  </body>
+</html>

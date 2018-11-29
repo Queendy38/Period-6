@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <h1>Adverb</h1>
+    <input type="text" id="adverd">
+    <button onclick="storageTest()">Click Here</button>
+    <script>
+      function storageTest(){
+        var x = document.getElementById('adverd').value;
+        localStorage.setItem("adverd", x);
+        location.href="localStorage3.html";
+      }
+    </script>
+  </body>
+</html>
