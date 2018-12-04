@@ -4,10 +4,19 @@
   
 </head>
 <body>
-    <h1 id="para" ondblclick="stop()">Hello</h1>
+    <h1 id="para" onclick="stop()">Hello</h1>
   <script>
+      var light = false; //default off
       function stop(){
-          document.getElementById('para').innerHTML = "stop it!"
+      
+          if (light == false){ //if off, then switch to on
+              document.getElementById('para').innerHTML = "stop it!"
+              light = true;
+          }
+          else {
+              light = true; //if on, then stays
+              document.getElementById('para').innerHTML = "Hello";
+          }
       }
       
   </script>  
