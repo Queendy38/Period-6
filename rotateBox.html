@@ -1,0 +1,33 @@
+
+<html>
+<head>
+   <style>
+   div{
+       width: 20vw;
+       height:30vh;
+       background-color:red;
+   }
+   </style>
+</head>
+<body>
+    <h1 id="test"></h1>
+    <div id="square"></div>
+    <script>
+    var d = 0;
+    document.body.addEventListener ('keypress', function(userchoice) {
+        var key = userchoice.keyCode;  //gets the number and saves as key ans pass that to userchoice
+        if ( key==100){ //this is right key
+            d++;
+            document.getElementById('test').innerHTML = d;
+            document.getElementById('square').style.transform = "rotate(" + d + "deg)";
+        }
+       else if ( key==97){ //this is left key
+            d--;
+            document.getElementById('test').innerHTML = d;
+            document.getElementById('square').style.transform = "rotate(" + d + "deg)";
+        }
+    })
+
+    </script>
+</body>
+</html>
