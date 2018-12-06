@@ -4,17 +4,17 @@
   
 </head>
 <body>
-    <h1 id="para" onclick="stop()">Hello</h1>
+    <h1 id="para" onclick="stop()">Hello</h1> 
   <script>
       var light = false; //default off
       function stop(){
       
-          if (light == false){ //if off, then switch to on
+          if (light == false){ //if off, then switch to on and display stop it
               document.getElementById('para').innerHTML = "stop it!"
-              light = true;
+              light = true; //change to true
           }
           else {
-              light = true; //if on, then stays
+              light = false; //off and displays hello
               document.getElementById('para').innerHTML = "Hello";
           }
       }
