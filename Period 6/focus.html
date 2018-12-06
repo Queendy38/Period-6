@@ -1,0 +1,42 @@
+
+<html>
+<head>
+
+</head>
+<body>
+    <p>Enter your username</p>
+    <input type="text" id="username" onfocus="remind()">
+    <p>Enter your password</p>
+    <input type="text" id="password" onfocus="passmind()" onblur="done()"> 
+    <p id="output"></p>
+    <script>
+
+       
+        var d = document.getElementById('output');
+        var dpass = document.getElementById('password');
+        var duser = document.getElementById('username'); 
+        dpass.value = "";
+        duser.value = "";
+function remind(){
+d.innerHTML = "Enter the password you registered with"; 
+document.getElementById('username').style.backgroundColor = "yellow"; 
+document.getElementById('password').style.backgroundColor = "white";
+
+}
+
+function passmind(){
+    d.innerHTML = "Your 12 digit password";
+    localStorage.setItem('username', duser.value);
+     document.getElementById('username').style.backgroundColor = "white";
+    document.getElementById('password').style.backgroundColor = "yellow";
+
+}
+function done(){
+
+    localStorage.setItem('password', dpass.value);
+  
+    location.href ="focus2.html"
+}
+ </script>
+</body>
+</html>
