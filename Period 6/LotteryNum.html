@@ -1,0 +1,36 @@
+
+<html>
+<head>
+<style>
+    div{
+        width:30vw;
+        height:30vh;
+        background-color:lightblue;
+    }
+</style>
+</head>
+<body>
+<div id="box" onmouseover="doWork()"></div>
+<h1 id="placeHolder"></h1>
+    <script>
+        var OP = 1;
+        var ticket = (Math.floor(Math.random() * 5) + 1);
+        var comp  = (Math.floor(Math.random() * 5) + 1); //generate number from 1-5
+        function doWork(){
+         OP-= 0.1; //OP - 0.1
+            document.getElementById('placeHolder').innerHTML = OP;
+            document.getElementById('box').style.opacity = OP;
+            }
+    //crate div box
+    //give id name
+    //create variavle to store opacity, call this OP and give value of 1
+    //when the scrathBox encounters mouseover, activate a scratchOff function
+    //create scratchOff function that decreases the OP by 0.1
+    //how OP value on the screen somewhere
+    //bind the opacity of the div box to the OP using .style.opacity = OP;
+    //generate a random comp number and a ticket number;
+    
+    
+    </script>
+</body>
+</html>
