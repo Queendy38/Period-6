@@ -5,21 +5,50 @@
     div{
         width:30vw;
         height:30vh;
-        background-color:lightblue;
+        background-color:#add8e6;
+        -webkit-clip-path:circle(40% at 45%50%);
+        background-image: url("https://www.errenskitchen.com/wp-content/uploads/2014/04/quick-and-easy-chinese-noodle-soup3-1.jpg");
+        background-size:cover;
+        background-position: center;
+        margin-left:auto;
+        margin-right:auto;
     }
+   
+    #comp{
+        float:right;
+    }
+   
 </style>
 </head>
 <body>
-<div id="box" onmouseover="doWork()"></div>
 <h1 id="placeHolder"></h1>
+<div id="box" onmouseover="doWork()"></div>
+<h2 id="comp"></h2>
+<h2 id="ticket"></h2>
+
     <script>
+        //document.getElementById('comp').style.visibility = "hidden";
+        document.body.style.cursor = "grab";
+        
         var OP = 1;
         var ticket = (Math.floor(Math.random() * 5) + 1);
         var comp  = (Math.floor(Math.random() * 5) + 1); //generate number from 1-5
-        function doWork(){
+        function doWork(){  
+            document.getElementById("box").style.cursor = "grabbing";
          OP-= 0.1; //OP - 0.1
-            document.getElementById('placeHolder').innerHTML = OP;
+            document.getElementById('ticket').innerHTML = "Your ticket number is " + ticket;
+            //document.getElementById('comp').innerHTML = "The lottery number is " + comp;
             document.getElementById('box').style.opacity = OP;
+            if (comp == ticket && OP < 0.3){
+                document.getElementById('placeHolder').innerHTML = "Congradulation! You Won!";
+                document.getElementById('comp').innerHTML = "The lottery number is " + comp;
+               // document.getElementById('comp').style.visibility = "visible";
+            }
+            else if (comp!= ticket && OP < 0.3){
+                document.getElementById('placeHolder').innerHTML = "You Lost!"
+                document.getElementById('comp').innerHTML = "The lottery number is " + comp;
+                //document.getElementById('comp').style.visibility = "visible";
+            }
             }
     //crate div box
     //give id name
@@ -29,6 +58,10 @@
     //how OP value on the screen somewhere
     //bind the opacity of the div box to the OP using .style.opacity = OP;
     //generate a random comp number and a ticket number;
+    //if comp == ticket and OP < 0.3
+    //tell the user that theu won
+    //else if comp != ticket and OP < 3
+    //tell the user that they lost
     
     
     </script>
