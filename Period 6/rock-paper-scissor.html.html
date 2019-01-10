@@ -6,10 +6,11 @@
     <script>
 
 var compchoices = ["rock", "paper", "scissors"];
+
+
+function rock(){ 
  var comprandom = Math.floor(Math.random() * compchoices.length);
  var compfinal = compchoices[comprandom];
-
-function rock(){
  if (compfinal == "scissors"){
      window.alert("You win");
       }
@@ -22,6 +23,8 @@ else{
 document.getElementById('placeHere').innerHTML = compfinal;
 }
 function paper(){
+    var comprandom = Math.floor(Math.random() * compchoices.length);
+ var compfinal = compchoices[comprandom];
  if (compfinal == "rock"){
      window.alert("You win");
       }
@@ -34,6 +37,8 @@ else{
 document.getElementById('placeHere').innerHTML = compfinal;
 }
 function scissor(){
+    var comprandom = Math.floor(Math.random() * compchoices.length);
+ var compfinal = compchoices[comprandom];
  if (compfinal == "paper"){
      window.alert("You win");
       }
