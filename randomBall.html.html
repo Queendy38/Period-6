@@ -1,0 +1,42 @@
+
+<html>
+<head>
+  <script src="p5.min.js"></script>
+</head>
+<body>
+    <script>
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var r;
+        var g;
+        var b;
+
+        var x = w/2;
+        var y = h/2;
+
+        function setup(){
+            createCanvas(w,h);
+        }
+        
+         function draw(){
+            
+            r = random(200,256);
+            g = random(200,256);
+            b = random(200,256);
+            
+           var randX = random(-10, 10);
+           var randY = random(-10,10);
+          x += randX;
+          y += randY;
+            strokeWeight(0); //remove outline
+            fill(color(r,g,b));
+            var c = random(100);
+            ellipse(x,y,50,50);
+         
+        }
+        </script>
+
+
+
+</body>
+</html>

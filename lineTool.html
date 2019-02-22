@@ -1,0 +1,88 @@
+<html>
+
+<head>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    #demo{
+      width:10vw;
+      height:10vh;
+    }
+  </style>
+  <script src="p5.min.js"></script>
+</head>
+
+<body>
+<h1>Hold to draw</h1>
+
+<div id="demo"></div>
+  <script>
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    var weight = 3;
+    var r;
+    var g;
+    var b;
+
+
+
+
+    function setup() {
+      createCanvas(w, h);
+      
+    }
+
+    function draw() {
+      r = random(256);
+      g = random(256);
+      b = random(256);
+      if (mouseIsPressed) {
+        strokeWeight(weight);
+        line(pmouseX, pmouseY, mouseX, mouseY); //pmouseX = previous x
+        stroke(color(R,G,B));
+      }
+
+    }  
+     //I would like the user to enter R,G,B values
+    //Those vwlues will be used as colors
+    var R = prompt("enter R value");
+    var G = prompt("enter G value");
+    var B = prompt("enter B value");
+
+  document.getElementById('demo').style.backgroundColor = 'rgb(' + [R,G,B].join(',') + ')'; //join with comma
+    //when I press the R key, change the line color to red
+    //when I press te G key, change the line color to green
+    //when I press the q key, randomize the line color
+
+    function keyPressed() { //must be call keyPressed()
+      if (keyCode == "38") { //press up arrow, thicker line
+        weight += 1;
+      }
+      if (keyCode == "40") { //press down arrow, thinner line
+        weight += -1;
+      }
+      if (keyCode == "13"){
+        
+      }
+     /* if (keyCode == "82") { //r key
+        stroke(color("red"));
+      }
+      if (keyCode == "71") { //g key
+        stroke(color("green"));
+      }
+      if (keyCode == "81") { //q key
+        stroke(color(r, g, b));
+      }*/
+      if (keyCode == "83"){ //press s
+      var x = prompt("What do you call this")
+        save(x + ".jpg");
+      }
+    }
+  
+  </script>
+</body>
+
+</html>
