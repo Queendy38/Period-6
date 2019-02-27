@@ -86,11 +86,11 @@
                     this.y += 10;
                 }
                 //document.getElementById('position').innerHTML = "(" + [this.x,this.y].join(',') + ")";
-            }
+            };
             this.kill = function(){
                 d = dist(this.x, this.y, ball.x, ball.y); // pos of first object and  pos of second object
                 if (d < 50){
-                    notLoop(); //stop
+                    noLoop(); //stop
                     window.alert("you lose");
                 }
             }
