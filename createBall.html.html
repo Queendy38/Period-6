@@ -16,6 +16,8 @@
 
 <body>
     <h1 id="score"></h1>
+    <br>
+    <h2 id="time" ></h2>
     <script>
         //create blocker that kills the badguy
         var w = window.innerWidth;
@@ -27,6 +29,9 @@
         var score = 0;
         var ballSize = 100;
         var ball2Size = 100;
+        var x = w/2;
+        var y = h/2;
+        var time = 0;
        
     
 
@@ -37,8 +42,7 @@
             ball.y = random(h);
             ball2.x = random(w);
             ball2.y = random(h);
-            ball3.x = random(w);
-            ball3.y = random(h);
+            ball3.rot = random(-50,50);
         }
 
         function draw() {
@@ -48,20 +52,43 @@
             ball2.show();
             ball2.move();
             ball2.kill();
-            ball3.show();
-            ball3.kill();
+            ball3.move();
+            ball3.killB();
+            ball3.killR();
            
         }
-        function ball3(){
-            this.show = function () {
-                fill(color("green"));
-                rect(this.x, this.y, 250, 150);
+        function ball3(){ //protect
+            this.move = function (){
+               
+        var randX = random(-10, 10);
+        var randY = random(-10,10);
+          x += randX;
+          y += randY;
+            strokeWeight(0); //remove outline
+            fill(color("green"));
+          
+            ellipse(x,y,200,200);
+         
             };
-            this.kill = function(){
-                d = dist(this.x, this.y, ball2.x, ball2.y);
-                if (d < 50){
+            this.killB = function(){
+                d = dist(x, y, ball2.x, ball2.y);
+                if ((d < 100) && (score > 50 )){ //if blue ball touches green ball within 10s, it'll not die
                    ball2Size = 0;
+                   ball2.x += 50;
+                   noloop();
                    
+                }
+            };
+            this.killR = function(){
+              
+                 d = dist(x,y, ball.x, ball.y);
+                if (d < 100) {
+                time += 1;
+                    document.getElementById('time').innerHTML = "You have " + (360 - time) + " s left in the red ball";
+                } 
+                if (time >= 360){ 
+                    ballSize = 0;
+                    noloop();
                 }
             }
         }
@@ -119,13 +146,14 @@
                 if (d < 50){
                    // noLoop(); //stop
                      ballSize -= 5;
-                     ball2Size += 10;
+                     ball2Size += 5;
                    
                    if (ball2Size >= 200){
                        ball2Size = 200;
                    }
-                   if ((ballSize == 20) || (ballSize <= 0)){
+                   if ((ballSize == 10) || (ballSize <= 0)){
                        ballSize = 0;
+                       noloop();
                    }
                     //ball width increase
                      //when ball2 is greater than ball1, ball will be gone
