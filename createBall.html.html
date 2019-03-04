@@ -15,13 +15,21 @@
 </head>
 
 <body>
-    <h1 id="position"></h1>
+    <h1 id="score"></h1>
     <script>
+        //create blocker that kills the badguy
         var w = window.innerWidth;
         var h = window.innerHeight;
         var ball = new ball(); //i'm createing a new object globally 
         var ball2 = new ball2();
+        var ball3 = new ball3();
         var d;
+        var score = 0;
+        var ballSize = 100;
+        var ball2Size = 100;
+       
+    
+
             
         function setup() {
             createCanvas(w, h);
@@ -29,6 +37,8 @@
             ball.y = random(h);
             ball2.x = random(w);
             ball2.y = random(h);
+            ball3.x = random(w);
+            ball3.y = random(h);
         }
 
         function draw() {
@@ -38,16 +48,32 @@
             ball2.show();
             ball2.move();
             ball2.kill();
+            ball3.show();
+            ball3.kill();
+           
         }
-
+        function ball3(){
+            this.show = function () {
+                fill(color("green"));
+                rect(this.x, this.y, 250, 150);
+            };
+            this.kill = function(){
+                d = dist(this.x, this.y, ball2.x, ball2.y);
+                if (d < 50){
+                   ball2Size = 0;
+                   
+                }
+            }
+        }
         function ball() { //this = ball
            // this.x = 100; // x position
             //this.y = 100; // y position
             this.show = function () {
                 fill(color("red"));
-                ellipse(this.x, this.y, 100, 100);
+                ellipse(this.x, this.y, ballSize, ballSize);
             };
             this.move = function () {
+                score += 1;
                 if ((keyIsDown(39)) && (this.x < w-50)){ // right arrow
                     this.x += 10;
                 }
@@ -61,7 +87,7 @@
                 if ((keyIsDown(40)) && (this.y < h-50)){ //down arrow
                     this.y += 10;
                 }
-               // document.getElementById('position').innerHTML = "(" + [this.x,this.y].join(',') + ")";
+                document.getElementById('score').innerHTML = "Your Score: " + score;
             }
         }
         function ball2() { //this = ball
@@ -69,7 +95,7 @@
             //this.y = 120; // y position
             this.show = function () {
                 fill(color("blue"));
-                ellipse(this.x, this.y, 100, 100);
+                ellipse(this.x, this.y, ball2Size, ball2Size);
             };
             this.move = function () {
                 if ((keyIsDown(68)) && (this.x < w-50)) { // right arrow
@@ -88,12 +114,26 @@
                 //document.getElementById('position').innerHTML = "(" + [this.x,this.y].join(',') + ")";
             };
             this.kill = function(){
-                d = dist(this.x, this.y, ball.x, ball.y); // pos of first object and  pos of second object
+                d = dist(this.x, this.y, ball.x, ball.y);
+                 // pos of first object and  pos of second object
                 if (d < 50){
-                    noLoop(); //stop
-                    window.alert("you lose");
+                   // noLoop(); //stop
+                     ballSize -= 5;
+                     ball2Size += 10;
+                   
+                   if (ball2Size >= 200){
+                       ball2Size = 200;
+                   }
+                   if ((ballSize == 20) || (ballSize <= 0)){
+                       ballSize = 0;
+                   }
+                    //ball width increase
+                     //when ball2 is greater than ball1, ball will be gone
                 }
             }
+
+            
+            
         }
     </script>
 </body>
