@@ -1,0 +1,64 @@
+<html>
+
+<head>
+  <script src="p5.min.js"></script>
+  <script src="p5.collide2D-master/p5.collide2d.min.js"></script>
+  <script src="jumper.js"></script>
+  <script src="barrier.js"></script>
+  <script src="platform.js"></script>
+
+  <style>
+    body {
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var hit;
+    var hit2;
+
+    function setup() {
+      createCanvas(w, h)
+    }
+
+    function draw() {
+      background(0);
+      jumper.show();
+      jumper.update();
+      barrier.show();
+      barrier.update();
+      platform.show();
+      //when jumper hits barriers, stop loop
+      hit = collideRectCircle(barrier.x, barrier.y, barrierW, barrierH, jumper.x, jumper.y,
+      50); //parameter of rect and circle
+      if (hit) {
+        noloop();
+      }
+      //when jumper hits green box, rest
+      hit2 = collideRectCircle(platform.x, platform.y, 50, 50, jumper.x, jumper.y, 50);
+      if (hit2) {
+      //when hits green box, jumps higher and stay
+        jumper.velocity += -6;
+      }
+      if (keyIsDown(37)) {
+        //left arrow
+        jumper.x += -5;
+      }
+      if (keyIsDown(39)) { //right arrow
+        jumper.x += 5;
+      }
+
+    }
+
+    //transfer to other page
+    //collide
+    //green box
+  </script>
+
+</body>
+
+</html>
